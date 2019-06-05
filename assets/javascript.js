@@ -1,7 +1,7 @@
 console.log("This works");
 
 // create the array with topics
-var topics = ["tennis", "Grigor Dimitrov", "cars", "Volvo", "animals", "dancing", "babies", "school", "accounting", "coding", "food", "Facebook", "Instagram", "meditation", "yoga", "reading", "mooning", "snuggling", "gardening", "Tom and Jerry", "Cinderella", "Frida Khalo", "weddings"];
+var topics = ["tennis", "Grigor Dimitrov", "cars", "Volvo", "animals", "dancing", "babies", "school", "accounting", "coding", "food", "Facebook", "Instagram", "meditation", "reading", "mooning", "snuggling", "gardening", "Tom and Jerry", "Cinderella", "Frida Khalo", "weddings"];
 
 // set a function to render the buttons
 function renderButtons() {
@@ -18,7 +18,6 @@ function renderButtons() {
 renderButtons();
 
 // access GIPHY API
-
 function getAndDisplayGifs(name) {
 var queryUrl ="https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=PG-13&lang=en"
 
