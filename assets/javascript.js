@@ -17,32 +17,62 @@ function renderButtons() {
 // call the function so that the buttons populate on the webpage
 renderButtons();
 
-// access GIPHY API
+// access GIPHY API function
 function getAndDisplayGifs(name) {
-var queryUrl ="https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=PG-13&lang=en"
+    var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=PG-13&lang=en"
 
-// "https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=G&lang=en";
+    // "https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=G&lang=en";
 
-$.ajax({
-    url: queryUrl,
-    method: "GET"
-}).then(function (response) {
-    console.log(response);
-    var gifs = response.data;
-    $("#gif-container").empty();
-    for (var i = 0; i < gifs.length; i++) {
-        var image = $("<img>");
-        image.addClass("giphy-image");
-        image.attr("src", gifs[i].images.original.url);
-        image.attr("alt", name);
-        $("#gif-container").append(image);
-    }
-});
+    $.ajax({
+        url: queryUrl,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        var gifs = response.data;
+        $("#gif-container").empty();
+        for (var i = 0; i < gifs.length; i++) {
+            var image = $("<img>");
+            image.addClass("giphy-image");
+            image.attr("src", gifs[i].images.original.url);
+            image.attr("alt", name);
+            $("#gif-container").append(image);
+        }
+    });
 }
 
-
+// when the user clicks on a topics function, 10 gifs on this topic populate on the page
 $(document).on("click", ".topics-btn", function () {
     var name = $(this).attr("data-topics");
     getAndDisplayGifs(name);
 });
+
+
+
+
+// This .on("click") function will trigger creation of a NEW TOPICS Button, 
+// execute the AJAX getAndDispayGifs function
+
+$("#find-topic").on("click", function (event) {
+
+// Preventing the submit button from trying to submit the form
+// We're optionally using a form so the user may hit Enter to search instead of clicking the button
+    event.preventDefault();
+
+// Here we grab the text from the input box
+    var topic = $("#topic-input").val();
+
+// Write code  to hit the queryURL with $.ajax, then take the response data
+// and display it in the gif-container div 
+
+
+   getAndDisplayGifs(topic);
+
+
+        // IMPORTANT! AN OBJECT IS NOT A STRING; 
+        // IF YOU WANT TO DISPLAY SOMETHING ON THE PAGE, IT HAS TO BE A STRING
+        // THAT IS WHY WE USE JSON.STRINGIFY TO CONVERt THE OBJECT INTO A STRING 
+        // $("#movie-view").text(response); RESULTS TO [object Object]
+
+        $("#gif-container").html(JSON.stringify(response));
+    });
 
