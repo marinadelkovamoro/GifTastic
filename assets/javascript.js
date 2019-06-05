@@ -23,7 +23,6 @@ renderButtons();
 function getAndDisplayGifs(name) {
     var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=PG-13&lang=en"
 
-    // "https://api.giphy.com/v1/gifs/search?api_key=z7FirGBNLEcM6yo58uhqbG1eN9iCNW8Z&q=" + name + "&limit=10&offset=0&rating=G&lang=en";
 
     $.ajax({
         url: queryUrl,
@@ -45,7 +44,11 @@ function getAndDisplayGifs(name) {
                 "data-state": "still",
                 "data-animate": imagesAnimated
             });
-            $("#gif-container").append(image);
+            var div = $("<div>");
+            var p = $("<p>").text("Rating: " + gifs[i].rating);
+            div.append(image, p);
+            $("#gif-container").append(div);
+
             // create a new varibles for both still and animated links
 
         }
