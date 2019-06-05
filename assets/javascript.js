@@ -5,6 +5,7 @@ var topics = ["tennis", "Grigor Dimitrov", "cars", "Volvo", "animals", "dancing"
 
 // set a function to render the buttons
 function renderButtons() {
+    $("#btn-container").empty();
     for (var i = 0; i < topics.length; i++) {
         console.log(topics[i]);
         var btn = $("<button>");
@@ -64,6 +65,9 @@ $("#find-topic").on("click", function (event) {
 // Write code  to hit the queryURL with $.ajax, then take the response data
 // and display it in the gif-container div 
 
+    topics.push(topic);
+    console.log(topics);
+    renderButtons();
 
    getAndDisplayGifs(topic);
 
