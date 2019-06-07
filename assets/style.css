@@ -4,15 +4,18 @@
 
 #btn-container {
     margin: 10px;
+    background-color: pink;
 }
 
 .topics-btn {
-    color: blue;
+    color: rgb(129, 57, 129);
     margin: 5px;
+    font-family: 'Righteous', cursive;
+
 }
 
 .giphy-image{
-    border: 3px solid green;
+    border: 3px solid lightseagreen;
     border-radius: 8px;
     margin: 10px;
 }
@@ -21,15 +24,33 @@
     position: relative;
     width: 400px;
     height: 180px;
-    border: 3px solid #73AD21;
+    border: 3px solid lightseagreen;
+    border-radius: 8px;
   } 
   
   #absolute {
+    font-family: 'Righteous', cursive;
+    background-color: palevioletred;
     position: absolute;
-    top: 240px;
+    top: 310px;
     right: 0;
     width: 240px;
     height: 110px;
     margin: 10px;
-    border: 3px solid #73AD21;
+    border: 3px solid lightseagreen;
+    border-radius: 8px;
   }
+
+  header {
+    text-align: center;
+    background-color: rgb(166, 224, 221);
+    color: black;
+    font-family: 'Righteous', cursive;
+  }
+
+  #instructions {
+    border-radius: 8px;
+    float: left;
+    margin: 30px;
+    
+}
