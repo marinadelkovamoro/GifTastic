@@ -4,4 +4,4 @@
 
  JavaScript and jQuery to change the HTML of the site are being used to achieve this goal.
 
- 
+Deployed webpage: https://marinadelkovamoro.github.io/GifTastic/ 
